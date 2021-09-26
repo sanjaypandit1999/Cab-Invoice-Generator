@@ -11,4 +11,12 @@ public class CabInvoiceService {
             return MINIMUM_FARE;
         return totalFare;
     }
+
+    public double calculateTotalAggregate(MultipleRide[] rides) {
+        double totalAggeregate = 0;
+        for (MultipleRide ride : rides){
+            totalAggeregate += this.calculateFare(ride.distance,ride.time);
+        }
+        return totalAggeregate/rides.length;
+    }
 }
